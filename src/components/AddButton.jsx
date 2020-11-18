@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../redux/actions';
 
-export default () => {
+const AddButton = () => {
     const dispatch = useDispatch();
 
     return (
@@ -11,3 +11,4 @@ export default () => {
         </div>
     )
 }
+export default AddButton

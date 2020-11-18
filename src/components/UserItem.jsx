@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUser } from '../redux/actions';
 
-export default ({ user }) => {
+const UserItem = ({ user }) => {
     const dispatch = useDispatch();
 
     const onChangeName = useCallback((v) => {
@@ -23,3 +23,5 @@ export default ({ user }) => {
         </span>
     </div>
 }
+
+export default UserItem;
