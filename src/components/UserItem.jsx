@@ -8,12 +8,12 @@ const UserItem = ({ user }) => {
   const onChangeName = useCallback((v) => {
     const newName = v.target.value;
     dispatch(updateUser({ ...user, name: newName }))
-  })
+  }, [dispatch, user])
 
   const onChangeEmail = useCallback((v) => {
     const newEmail = v.target.value;
     dispatch(updateUser({ ...user, email: newEmail }))
-  })
+  }, [dispatch, user])
   return <div className="row" style={{
     marginBottom: "5px"
   }}>
