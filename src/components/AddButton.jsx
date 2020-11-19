@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addUser } from '../redux/actions';
+import { addUser } from '../appStore';
 
 const AddButton = () => {
     const dispatch = useDispatch();

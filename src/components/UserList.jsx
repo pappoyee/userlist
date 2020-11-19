@@ -3,10 +3,12 @@ import { useSelector } from 'react-redux';
 import UserItem from './UserItem';
 
 const UserList = () => {
-    const users = useSelector(state => state);
-    return <div className="collection">{
-        users.length ? <div>{users.map(u => <UserItem key={u.id} user={u} />)}</div> : "Press Add new"
-    }</div>
+  const users = useSelector(state => state.users);
+  return <div className="collection">{
+    users.length ? 
+      <div>{users.map(u => <UserItem key={u.id} user={u} />)}</div> 
+      : "Press Add new"
+  }</div>
 }
 
 export default UserList;

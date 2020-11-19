@@ -1,29 +1,34 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import './App.css';
-import AddButton from './components/AddButton';
-import UserList from './components/UserList';
-import { loadInitial } from './redux/actions';
+import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import "./App.css";
+import { AddButton, UserList } from "./components";
+import { fetchUsers } from "./api";
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.loading);
 
-  useEffect(()=>{
-    const intialData = [
-      {id: 1, name: 'name1', email:'name1@gmail.com'},
-      {id: 2, name: 'name2', email:'name2@gmail.com'},
-    ]
-    dispatch(loadInitial(intialData))
-  },[])
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, []);
 
   return (
-    <div className="App container m4 l3">
-      <AddButton/>
-      <UserList/>
+    <div className="App container"
+      style={{
+        marginTop:"10px"
+      }}
+    >
+      {loading ? (
+        "Loading..."
+      ) : (
+        <div>
+          <AddButton />
+          <UserList />
+        </div>
+      )}
     </div>
   );
 }
 
 export default App;
-
